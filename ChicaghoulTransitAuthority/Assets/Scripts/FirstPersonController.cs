@@ -6,7 +6,7 @@ using UnityEngine;
 //First Attach this the player object (you will also need a Character Controller)
 //Then Assign the main camera to the player camera below
 
-[RequiredComponent(typeof(characterController))]
+[RequireComponent(typeof(CharacterController))]
 
 public class FirstPersonController : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class FirstPersonController : MonoBehaviour
     public float gravity = 20.0f;
 
     //we need a reference to the camera obj
-    public Camera camera;
+    public Camera playerCamera;
 
     //we want to limit how fast the user can look around
     public float lookSpeed = 2.0f;
@@ -41,7 +41,7 @@ public class FirstPersonController : MonoBehaviour
        characterController = GetComponent<CharacterController>();
        if(characterController == null) //THIS SHOULD NEVER BE NULL
        {
-            exit(1); //If this happens we fucked up somewhere
+            //If this happens we fucked up somewhere
        }
 
        //we want to lock the curser to the screen while controling the player
@@ -52,15 +52,17 @@ public class FirstPersonController : MonoBehaviour
 
     void Update()
     {
-        Vector3 forward = transform.transformDirection(Vector3.forward);
-        Vector3 right = transform.transformDirection(Vector3.right);
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 right = transform.TransformDirection(Vector3.right);
 
         //pressing shift will allow the user to run
-        bool isRunning = input.GetKey(KeyCode.LeftShift);
+        bool isRunning = Input.GetKey(KeyCode.LeftShift);
 
         //users mouse sensitivity
         float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Virtical") : 0;
         float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal") : 0;
+
+        float movementDirectionY = moveDirection.y;
 
         if(Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {
@@ -84,9 +86,9 @@ public class FirstPersonController : MonoBehaviour
         if(canMove)
         {
             rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-            rotationX = mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0)
+            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
     }
 }

@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f1c33155cd49b4484124726ea21024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1023323713}
   sensX: 500
   sensY: 500
   orientation: {fileID: 1508441476}
@@ -510,6 +511,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835533101}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1023323713 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8509647848382457272, guid: 8760dc56236b6c543abfa5667adcec3a, type: 3}
+  m_PrefabInstance: {fileID: 8509647847746301856}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1050701337
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +873,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833579059

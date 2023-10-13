@@ -13,6 +13,7 @@ public class PhysicsPickup : MonoBehaviour
     [SerializeField] private Transform PickupTarget;
     [Space]
     [SerializeField] private float PickupRange;
+    [SerializeField] private float throwAmount;
     private Rigidbody CurrentObject;
 
     void Update()
@@ -46,9 +47,10 @@ public class PhysicsPickup : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0) && CurrentObject)
         {
-            Vector3 DirectionToPoint = PickupTarget.position - CurrentObject.position;
-            float DistanceToPoint = DirectionToPoint.magnitude;
-            CurrentObject.velocity = DirectionToPoint * -12f * DistanceToPoint;
+            CurrentObject.velocity = PlayerCamera.transform.forward * throwAmount * Time.deltaTime;
+
+            CurrentObject.useGravity = true;
+            CurrentObject = null;
 
             CurrentObject.useGravity = true;
             CurrentObject = null;

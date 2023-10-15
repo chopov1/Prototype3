@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SubwayTrain_diffuse
-  m_Shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: Unlit_Hologram
+  m_Shader: {fileID: 4800000, guid: 139561c7c90f8ec43beee34f28f7229b, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -21,11 +21,17 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: a6c0fdc802baa6e4fa1e9ef96688dad5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _Amount: 2.35
+    - _Amplitude: 1.63
+    - _CutoutThresh: 0
+    - _Distance: 0.41
+    - _Speed: 6.52
+    - _Transparency: 0.5
     m_Colors:
-    - _Color: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
+    - _TintColor: {r: 0.29411766, g: 0, b: 0.051059023, a: 1}
   m_BuildTextureStacks: []

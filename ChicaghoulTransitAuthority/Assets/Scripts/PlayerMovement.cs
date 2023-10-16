@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("DeBug")]
+    public Vector3 speed;
     [Header("Movement")]
     public float moveSpeed;
     public float groundDrag;
@@ -36,6 +39,12 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         SpeedControl();
 
+        if(Input.GetKeyUp(KeyCode.W))
+        {
+            speed = rb.velocity;
+            rb.velocity = Vector3.zero;
+        }
+        
         if(isGrounded)
         {
             rb.drag = groundDrag;

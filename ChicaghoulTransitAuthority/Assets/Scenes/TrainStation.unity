@@ -703,6 +703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60fc373206a8f4647a6af39d88bc4546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasArrived: 0
   waitTime: 5
   DistanceToMove: 50
   Direction: {x: -1, y: 0, z: 0}
@@ -722,6 +723,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 566022681}
+  - {fileID: 986268249}
+  - {fileID: 1536007779}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -744,7 +747,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 700
   Pan2D: 0
@@ -937,6 +940,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 986268249}
+  - component: {fileID: 986268251}
+  - component: {fileID: 986268250}
   m_Layer: 0
   m_Name: SceneChangeTrigger
   m_TagString: Untagged
@@ -951,14 +956,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986268248}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.2711926, y: 6.3611264, z: 2.4900815}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.879999, y: -1.6309843, z: 9.52}
+  m_LocalScale: {x: 1.6191, y: 3.3259, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 656420510}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &986268250
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986268248}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &986268251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986268248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea2e89080888cb4495db9edb4b332c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneToLoad: TrainInterior
 --- !u!1 &1116263598 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6794287780436698369, guid: 7d014300ec461fd4c802864657849c1e, type: 3}
@@ -1239,6 +1270,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 505114845397383053, guid: 8760dc56236b6c543abfa5667adcec3a, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2393244869126003635, guid: 8760dc56236b6c543abfa5667adcec3a, type: 3}
       propertyPath: cameraPosition
       value: 
@@ -1253,6 +1288,10 @@ PrefabInstance:
       objectReference: {fileID: 558979527}
     - target: {fileID: 8509647848382457270, guid: 8760dc56236b6c543abfa5667adcec3a, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509647848382457270, guid: 8760dc56236b6c543abfa5667adcec3a, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8509647848382457272, guid: 8760dc56236b6c543abfa5667adcec3a, type: 3}
@@ -1307,6 +1346,18 @@ PrefabInstance:
       propertyPath: PlayerCamera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8509647848779583682, guid: 8760dc56236b6c543abfa5667adcec3a, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509647848951093400, guid: 8760dc56236b6c543abfa5667adcec3a, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509647848969409059, guid: 8760dc56236b6c543abfa5667adcec3a, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8760dc56236b6c543abfa5667adcec3a, type: 3}
 --- !u!4 &1514513469 stripped
@@ -1314,6 +1365,65 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8509647848779583683, guid: 8760dc56236b6c543abfa5667adcec3a, type: 3}
   m_PrefabInstance: {fileID: 1498783476}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1536007778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1536007779}
+  - component: {fileID: 1536007781}
+  - component: {fileID: 1536007780}
+  m_Layer: 0
+  m_Name: SceneChangeTrigger (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1536007779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536007778}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 19.93, y: -1.6309843, z: 9.77}
+  m_LocalScale: {x: 1.6191, y: 3.3259, z: 1.4436}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 656420510}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1536007780
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536007778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1536007781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536007778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea2e89080888cb4495db9edb4b332c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneToLoad: TrainInterior
 --- !u!1 &1569812719
 GameObject:
   m_ObjectHideFlags: 0

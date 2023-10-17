@@ -26,11 +26,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amount: 2.35
-    - _Amplitude: 1.63
-    - _CutoutThresh: 0
-    - _Distance: 0.41
-    - _Speed: 6.52
+    - _Amount: -0.22
+    - _Amplitude: 57.09
+    - _CutoutThresh: 0.48
+    - _Distance: 1.16
+    - _Speed: 5.9
     - _Transparency: 0.5
     m_Colors:
     - _TintColor: {r: 0.29411766, g: 0, b: 0.051059023, a: 1}

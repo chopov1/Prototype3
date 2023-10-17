@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TrainMovement : MonoBehaviour
 {
+    public static TrainMovement instance;
+    public bool hasArrived;
     private enum State { idle, moving, stopping }
     
     [Header("Time Info")]
@@ -17,13 +19,17 @@ public class TrainMovement : MonoBehaviour
     [SerializeField] float Speed;
     [SerializeField] float SlowDownSpeed;
     private float tempSpeed;
-    
+
+    [Header("Audio")]
+    [SerializeField]
+    AudioSource trainAS;
 
     private State state = State.idle;
 
     void Start()
     {
         tempSpeed = Speed;
+        instance = this;
     }
 
     void FixedUpdate()
@@ -46,6 +52,10 @@ public class TrainMovement : MonoBehaviour
 
     void moving()
     {
+        if (!trainAS.isPlaying)
+        {
+            trainAS.Play();
+        }
         transform.position += Direction * Speed;
         distanceMoved += Speed;
         if(distanceMoved >= DistanceToMove)
@@ -61,6 +71,7 @@ public class TrainMovement : MonoBehaviour
         if(tempSpeed <= 0)
         {
             state = State.idle;
+            hasArrived = true;
         }
     }
 }

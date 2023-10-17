@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    bool hasPlayedSound;
+
     [Header("DeBug")]
     public Vector3 speed;
     [Header("Movement")]
@@ -25,10 +27,30 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
+    [SerializeField]
+    AudioClip[] footstepSounds;
+
+    [SerializeField]
+    float footstepSpeed;
+
+    AudioSource playerAS;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        hasPlayedSound = true;
+        playerAS = GetComponent<AudioSource>();
+    }
+
+    AudioClip getRandomFootstepSound()
+    {
+        return footstepSounds[Random.Range(0, footstepSounds.Length-1)];
+    }
+
+    void PlayFootstepSound()
+    {
+        playerAS.PlayOneShot(getRandomFootstepSound());
     }
 
     private void Update()
@@ -39,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         SpeedControl();
 
-        if(Input.GetKeyUp(KeyCode.W))
+        if(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) | Input.GetKeyUp(KeyCode.D))
         {
             speed = rb.velocity;
             rb.velocity = Vector3.zero;
@@ -53,6 +75,21 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.drag = 0;
         }
+        if(horizontalInput + verticalInput != 0)
+        {
+            if (hasPlayedSound)
+            {
+                hasPlayedSound = false;
+                StartCoroutine(waitForStep());
+                PlayFootstepSound();
+            }
+        }
+    }
+
+    IEnumerator waitForStep()
+    {
+        yield return new WaitForSeconds(footstepSpeed);
+        hasPlayedSound = true;
     }
 
     private void FixedUpdate()
